@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="정부지원금, 세금, 건강보험, 재테크까지 - 알아두면 돈 되는 생활정보를 한곳에서 만나보세요.">
+<meta name="keywords" content="정부지원금, 복지혜택, 세금절약, 건강보험, 재테크, 생활정보, 생활법률">
+<title>유노포유(YouNo4U) - 알아두면 돈 되는 생활정보</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0F1B3D;
+    --navy-dark: #080F22;
+    --navy-light: #1A2B55;
+    --gold: #D4A843;
+    --gold-light: #F0C86A;
+    --white: #FFFFFF;
+    --gray-50: #F8F9FC;
+    --gray-100: #EEF0F5;
+    --gray-200: #D8DCE8;
+    --gray-400: #9098B0;
+    --gray-600: #5C6480;
+    --gray-800: #2C3050;
+    --text: #1A1E35;
+    --cat1: #1E6FA8;
+    --cat1-bg: #E8F3FB;
+    --cat2: #107A5E;
+    --cat2-bg: #E4F4EF;
+    --cat3: #8B3A9E;
+    --cat3-bg: #F3E8F8;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '맑은 고딕', sans-serif; color: var(--text); background: var(--gray-50); line-height: 1.7; font-size: 16px; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+
+  /* HEADER */
+  .site-header { background: var(--navy); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+  .header-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 36px; height: 36px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: var(--navy); letter-spacing: -0.5px; }
+  .logo-text { color: var(--white); font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .logo-text span { color: var(--gold); }
+  .main-nav { display: flex; align-items: center; gap: 4px; }
+  .main-nav a { color: rgba(255,255,255,0.75); font-size: 14px; padding: 6px 14px; border-radius: 6px; transition: all 0.2s; font-weight: 500; }
+  .main-nav a:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+  .main-nav a.active { color: var(--gold); }
+  .nav-cta { background: var(--gold) !important; color: var(--navy) !important; font-weight: 700 !important; padding: 6px 16px !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%); padding: 72px 24px 64px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+  .hero-inner { max-width: 700px; margin: 0 auto; position: relative; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.4); color: var(--gold); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.05em; }
+  .hero-badge::before { content: '●'; font-size: 8px; }
+  .hero h1 { color: var(--white); font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.25; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero p { color: rgba(255,255,255,0.7); font-size: 17px; line-height: 1.7; max-width: 520px; margin: 0 auto 32px; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; }
+  .hero-stat { text-align: center; }
+  .hero-stat strong { display: block; color: var(--gold); font-size: 26px; font-weight: 800; }
+  .hero-stat span { color: rgba(255,255,255,0.5); font-size: 12px; }
+
+  /* TICKER */
+  .ticker { background: var(--gold); padding: 0; overflow: hidden; }
+  .ticker-inner { max-width: 1140px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; gap: 16px; }
+  .ticker-label { background: var(--navy); color: var(--gold); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 4px; white-space: nowrap; letter-spacing: 0.05em; }
+  .ticker-items { display: flex; gap: 32px; overflow: hidden; white-space: nowrap; }
+  .ticker-item { font-size: 13px; font-weight: 600; color: var(--navy); }
+
+  /* MAIN LAYOUT */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .main-content { display: grid; grid-template-columns: 1fr 320px; gap: 40px; padding: 48px 24px; max-width: 1140px; margin: 0 auto; }
+
+  /* SECTION HEADING */
+  .section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--gray-200); }
+  .section-heading h2 { font-size: 19px; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+  .section-heading h2::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--gold); border-radius: 2px; }
+  .section-heading a { font-size: 13px; color: var(--gray-400); transition: color 0.2s; }
+  .section-heading a:hover { color: var(--navy); }
+
+  /* FEATURED ARTICLE */
+  .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .featured-main { grid-column: 1 / -1; }
+  .article-card { background: var(--white); border-radius: 12px; overflow: hidden; border: 1px solid var(--gray-200); transition: transform 0.2s, box-shadow 0.2s; }
+  .article-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(15,27,61,0.12); }
+  .card-thumb { aspect-ratio: 16/9; overflow: hidden; background: var(--gray-100); position: relative; }
+  .card-thumb-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+  .card-body { padding: 18px 20px 20px; }
+  .cat-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-bottom: 8px; }
+  .cat-gov { background: var(--cat1-bg); color: var(--cat1); }
+  .cat-tax { background: var(--cat2-bg); color: var(--cat2); }
+  .cat-fin { background: var(--cat3-bg); color: var(--cat3); }
+  .card-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.4; margin-bottom: 8px; }
+  .featured-main .card-title { font-size: 21px; }
+  .card-excerpt { font-size: 14px; color: var(--gray-600); line-height: 1.65; margin-bottom: 12px; }
+  .card-meta { font-size: 12px; color: var(--gray-400); display: flex; align-items: center; gap: 12px; }
+  .card-meta span::before { content: ''; }
+
+  /* ARTICLE LIST */
+  .article-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+  .article-list-item { background: var(--white); border-radius: 10px; border: 1px solid var(--gray-200); padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.2s; }
+  .article-list-item:hover { box-shadow: 0 4px 16px rgba(15,27,61,0.08); }
+  .list-num { font-size: 22px; font-weight: 800; color: var(--gray-200); min-width: 32px; line-height: 1; margin-top: 2px; }
+  .list-body { flex: 1; }
+  .list-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.4; }
+  .list-meta { font-size: 12px; color: var(--gray-400); }
+
+  /* CATEGORY SECTION */
+  .cat-section { margin-bottom: 40px; }
+  .cat-header { padding: 14px 20px; border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: space-between; }
+  .cat-header-gov { background: var(--cat1); }
+  .cat-header-tax { background: var(--cat2); }
+  .cat-header-fin { background: var(--cat3); }
+  .cat-header h3 { color: var(--white); font-size: 16px; font-weight: 700; }
+  .cat-header a { color: rgba(255,255,255,0.7); font-size: 12px; }
+  .cat-articles { background: var(--white); border: 1px solid var(--gray-200); border-top: none; border-radius: 0 0 10px 10px; }
+  .cat-article-item { padding: 14px 20px; border-bottom: 1px solid var(--gray-100); display: flex; justify-content: space-between; align-items: center; transition: background 0.15s; }
+  .cat-article-item:last-child { border-bottom: none; }
+  .cat-article-item:hover { background: var(--gray-50); }
+  .cat-article-title { font-size: 14px; font-weight: 500; color: var(--gray-800); flex: 1; }
+  .cat-article-title:hover { color: var(--navy); }
+  .cat-article-date { font-size: 12px; color: var(--gray-400); white-space: nowrap; margin-left: 12px; }
+
+  /* SIDEBAR */
+  .sidebar { display: flex; flex-direction: column; gap: 24px; }
+  .sidebar-widget { background: var(--white); border-radius: 12px; border: 1px solid var(--gray-200); overflow: hidden; }
+  .widget-header { padding: 14px 18px; background: var(--navy); }
+  .widget-header h3 { color: var(--white); font-size: 14px; font-weight: 700; }
+  .widget-body { padding: 16px 18px; }
+  .popular-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--gray-100); }
+  .popular-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .popular-num { width: 22px; height: 22px; background: var(--navy); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .popular-num.top { background: var(--gold); color: var(--navy); }
+  .popular-title { font-size: 13px; font-weight: 500; color: var(--gray-800); line-height: 1.5; }
+  .quick-link { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .quick-link a { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; padding: 12px 10px; text-align: center; font-size: 13px; font-weight: 500; color: var(--gray-800); transition: all 0.2s; }
+  .quick-link a:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .notice-item { padding: 10px 0; border-bottom: 1px solid var(--gray-100); font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+  .notice-item:last-child { border-bottom: none; }
+  .notice-item strong { color: var(--gold); font-size: 11px; display: block; margin-bottom: 2px; }
+
+  /* FOOTER */
+  .site-footer { background: var(--navy-dark); color: rgba(255,255,255,0.5); margin-top: 60px; }
+  .footer-top { max-width: 1140px; margin: 0 auto; padding: 48px 24px 32px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+  .footer-brand .logo-text { font-size: 20px; margin-bottom: 12px; display: block; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 8px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-bottom-inner { max-width: 1140px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+
+  /* BREADCRUMB */
+  .breadcrumb { max-width: 1140px; margin: 0 auto; padding: 14px 24px; font-size: 13px; color: var(--gray-400); display: flex; gap: 8px; align-items: center; }
+  .breadcrumb span { color: var(--gray-200); }
+
+  @media (max-width: 900px) {
+    .main-content { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .hero-stats { gap: 24px; }
+    .main-nav { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom-inner { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">U4</div>
+      <span class="logo-text">유노포유<span>.com</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="active">홈</a>
+      <a href="gov.html">정부지원금</a>
+      <a href="tax.html">세금·보험</a>
+      <a href="finance.html">재테크</a>
+      <a href="about.html">소개</a>
+      <a href="contact.html" class="nav-cta">문의하기</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">매일 업데이트되는 생활정보</div>
+    <h1>알아두면 <em>돈 되는</em><br>대한민국 생활정보</h1>
+    <p>정부지원금부터 세금 절약, 건강보험 혜택, 재테크까지 — 복잡한 제도를 쉽고 정확하게 정리해 드립니다.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>500+</strong><span>생활정보 아티클</span></div>
+      <div class="hero-stat"><strong>3개</strong><span>핵심 카테고리</span></div>
+      <div class="hero-stat"><strong>매일</strong><span>새 정보 업데이트</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-label">📢 최신 소식</span>
+    <div class="ticker-items">
+      <span class="ticker-item">2026년 2분기 긴급복지지원금 신청 접수 시작</span>
+      <span class="ticker-item">·</span>
+      <span class="ticker-item">건강보험료 개편안 주요 내용 정리</span>
+      <span class="ticker-item">·</span>
+      <span class="ticker-item">청년도약계좌 가입 조건 완화 안내</span>
+      <span class="ticker-item">·</span>
+      <span class="ticker-item">종합소득세 신고 시즌, 꼭 알아야 할 공제 항목 총정리</span>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">홈</a>
+</div>
+
+<div class="main-content">
+  <main>
+
+    <!-- 주요 기사 -->
+    <div class="section-heading">
+      <h2>주요 기사</h2>
+      <a href="#">전체보기 →</a>
+    </div>
+    <div class="featured-grid">
+      <div class="featured-main">
+        <a href="article-gov1.html" class="article-card" style="display:block;">
+          <div class="card-thumb">
+            <div class="card-thumb-img" style="background: linear-gradient(135deg, #E8F3FB, #B8D8F0); font-size: 64px;">🏛️</div>
+          </div>
+          <div class="card-body">
+            <span class="cat-badge cat-gov">정부지원금</span>
+            <p class="card-title">2026년 하반기 정부 복지 혜택 총정리 — 내가 받을 수 있는 지원금은?</p>
+            <p class="card-excerpt">매년 바뀌는 복지 제도, 어디서부터 시작해야 할지 막막하신가요? 소득 구간별로 신청 가능한 정부지원금을 한눈에 정리했습니다. 긴급복지지원부터 근로장려금까지, 놓치지 말아야 할 핵심 혜택을 확인하세요.</p>
+            <div class="card-meta">
+              <span>2026.06.10</span>
+              <span>읽는 시간 5분</span>
+              <span>조회 4,821</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a href="article-tax1.html" class="article-card" style="display:block;">
+          <div class="card-thumb">
+            <div class="card-thumb-img" style="background: linear-gradient(135deg, #E4F4EF, #A8DFD0);">💰</div>
+          </div>
+          <div class="card-body">
+            <span class="cat-badge cat-tax">세금·보험</span>
+            <p class="card-title">건강보험료 줄이는 5가지 합법적 방법</p>
+            <p class="card-excerpt">지역가입자·직장가입자 모두 적용되는 절감 전략을 공개합니다.</p>
+            <div class="card-meta">
+              <span>2026.06.08</span>
+              <span>조회 3,540</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a href="article-fin1.html" class="article-card" style="display:block;">
+          <div class="card-thumb">
+            <div class="card-thumb-img" style="background: linear-gradient(135deg, #F3E8F8, #D8B8EC);">📈</div>
+          </div>
+          <div class="card-body">
+            <span class="cat-badge cat-fin">재테크</span>
+            <p class="card-title">청년도약계좌 완전 분석 — 5년 후 최대 얼마?</p>
+            <p class="card-excerpt">월 70만 원 납입 시 정부 지원금 포함 수령액을 시뮬레이션해봤습니다.</p>
+            <div class="card-meta">
+              <span>2026.06.07</span>
+              <span>조회 2,910</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 인기 기사 -->
+    <div class="section-heading">
+      <h2>많이 읽은 기사</h2>
+      <a href="#">더보기 →</a>
+    </div>
+    <div class="article-list">
+      <div class="article-list-item">
+        <span class="list-num">01</span>
+        <div class="list-body">
+          <p class="list-title"><a href="article-gov1.html">국민취업지원제도, 나도 해당될까? 신청 자격 및 절차 완벽 가이드</a></p>
+          <div class="list-meta"><span class="cat-badge cat-gov" style="font-size:10px; padding:2px 7px;">정부지원금</span> 2026.06.05 · 조회 6,102</div>
+        </div>
+      </div>
+      <div class="article-list-item">
+        <span class="list-num">02</span>
+        <div class="list-body">
+          <p class="list-title"><a href="article-tax1.html">연말정산 환급금 극대화하는 10가지 공제 전략</a></p>
+          <div class="list-meta"><span class="cat-badge cat-tax" style="font-size:10px; padding:2px 7px;">세금·보험</span> 2026.05.28 · 조회 5,443</div>
+        </div>
+      </div>
+      <div class="article-list-item">
+        <span class="list-num">03</span>
+        <div class="list-body">
+          <p class="list-title"><a href="article-fin1.html">ISA 계좌 vs 연금저축 — 2026년 직장인 최적 선택은?</a></p>
+          <div class="list-meta"><span class="cat-badge cat-fin" style="font-size:10px; padding:2px 7px;">재테크</span> 2026.05.22 · 조회 4,899</div>
+        </div>
+      </div>
+      <div class="article-list-item">
+        <span class="list-num">04</span>
+        <div class="list-body">
+          <p class="list-title"><a href="article-gov2.html">기초생활수급자 조건 완화 — 2026년 달라진 기준 정리</a></p>
+          <div class="list-meta"><span class="cat-badge cat-gov" style="font-size:10px; padding:2px 7px;">정부지원금</span> 2026.05.18 · 조회 4,211</div>
+        </div>
+      </div>
+      <div class="article-list-item">
+        <span class="list-num">05</span>
+        <div class="list-body">
+          <p class="list-title"><a href="article-tax2.html">프리랜서·N잡러 종합소득세 신고 완벽 매뉴얼</a></p>
+          <div class="list-meta"><span class="cat-badge cat-tax" style="font-size:10px; padding:2px 7px;">세금·보험</span> 2026.05.15 · 조회 3,782</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 카테고리별 최신 -->
+    <div class="cat-section">
+      <div class="cat-header cat-header-gov">
+        <h3>🏛 정부지원금 · 복지혜택</h3>
+        <a href="gov.html">더보기 →</a>
+      </div>
+      <div class="cat-articles">
+        <div class="cat-article-item"><a href="article-gov1.html" class="cat-article-title">2026 근로장려금 신청 대상 및 지급 일정 안내</a><span class="cat-article-date">06.12</span></div>
+        <div class="cat-article-item"><a href="article-gov1.html" class="cat-article-title">주거급여 신청 방법과 지원 금액 — 월세 보조 받는 법</a><span class="cat-article-date">06.09</span></div>
+        <div class="cat-article-item"><a href="article-gov1.html" class="cat-article-title">소상공인 정책자금 대출 종류와 금리 비교 (2026년 최신)</a><span class="cat-article-date">06.06</span></div>
+        <div class="cat-article-item"><a href="article-gov1.html" class="cat-article-title">노인장기요양보험 등급 신청부터 혜택까지 한눈에</a><span class="cat-article-date">06.03</span></div>
+      </div>
+    </div>
+
+    <div class="cat-section">
+      <div class="cat-header cat-header-tax">
+        <h3>💼 세금 · 건강보험</h3>
+        <a href="tax.html">더보기 →</a>
+      </div>
+      <div class="cat-articles">
+        <div class="cat-article-item"><a href="article-tax1.html" class="cat-article-title">건강보험 피부양자 자격 유지하는 방법 — 소득 기준 정리</a><span class="cat-article-date">06.11</span></div>
+        <div class="cat-article-item"><a href="article-tax1.html" class="cat-article-title">부가가치세 신고 오류 TOP 5와 수정신고 방법</a><span class="cat-article-date">06.08</span></div>
+        <div class="cat-article-item"><a href="article-tax1.html" class="cat-article-title">국민연금 임의가입 vs 추납 — 노후 수령액 비교</a><span class="cat-article-date">06.05</span></div>
+        <div class="cat-article-item"><a href="article-tax1.html" class="cat-article-title">자녀 교육비 세액공제 최대한 챙기는 방법</a><span class="cat-article-date">06.02</span></div>
+      </div>
+    </div>
+
+    <div class="cat-section">
+      <div class="cat-header cat-header-fin">
+        <h3>📊 재테크 · 생활금융</h3>
+        <a href="finance.html">더보기 →</a>
+      </div>
+      <div class="cat-articles">
+        <div class="cat-article-item"><a href="article-fin1.html" class="cat-article-title">2026년 적금 금리 비교 — 연 5% 이상 상품 총정리</a><span class="cat-article-date">06.13</span></div>
+        <div class="cat-article-item"><a href="article-fin1.html" class="cat-article-title">전세대출 vs 월세 — 내 상황에 맞는 선택 가이드</a><span class="cat-article-date">06.10</span></div>
+        <div class="cat-article-item"><a href="article-fin1.html" class="cat-article-title">ETF 초보 입문 가이드 — 월 10만 원으로 시작하기</a><span class="cat-article-date">06.07</span></div>
+        <div class="cat-article-item"><a href="article-fin1.html" class="cat-article-title">신용점수 올리는 6가지 실천 방법 (즉시 적용 가능)</a><span class="cat-article-date">06.04</span></div>
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="sidebar">
+    <div class="sidebar-widget">
+      <div class="widget-header"><h3>🔥 오늘의 인기 콘텐츠</h3></div>
+      <div class="widget-body">
+        <div class="popular-item">
+          <span class="popular-num top">1</span>
+          <a href="article-gov1.html" class="popular-title">2026 하반기 정부지원금 총정리</a>
+        </div>
+        <div class="popular-item">
+          <span class="popular-num top">2</span>
+          <a href="article-tax1.html" class="popular-title">건강보험료 줄이는 5가지 방법</a>
+        </div>
+        <div class="popular-item">
+          <span class="popular-num top">3</span>
+          <a href="article-fin1.html" class="popular-title">청년도약계좌 완전 분석</a>
+        </div>
+        <div class="popular-item">
+          <span class="popular-num">4</span>
+          <a href="article-gov1.html" class="popular-title">근로장려금 신청 대상 확인하기</a>
+        </div>
+        <div class="popular-item">
+          <span class="popular-num">5</span>
+          <a href="article-tax1.html" class="popular-title">연말정산 공제 10가지 전략</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <div class="widget-header"><h3>⚡ 빠른 바로가기</h3></div>
+      <div class="widget-body">
+        <div class="quick-link">
+          <a href="gov.html">🏛 정부지원금</a>
+          <a href="tax.html">💰 세금·보험</a>
+          <a href="finance.html">📈 재테크</a>
+          <a href="about.html">ℹ️ 사이트 소개</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <div class="widget-header"><h3>📅 이달의 주요 일정</h3></div>
+      <div class="widget-body">
+        <div class="notice-item">
+          <strong>~ 6월 30일</strong>
+          2025년 귀속 종합소득세 신고·납부 마감
+        </div>
+        <div class="notice-item">
+          <strong>7월 1일~</strong>
+          하반기 근로장려금 신청 시작
+        </div>
+        <div class="notice-item">
+          <strong>7월 15일~</strong>
+          건강보험료 정산 환급·추가납부
+        </div>
+        <div class="notice-item">
+          <strong>8월 31일</strong>
+          주거급여 신청 분기 마감
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <div class="widget-header"><h3>📌 사이트 안내</h3></div>
+      <div class="widget-body" style="font-size: 13px; color: var(--gray-600); line-height: 1.7;">
+        <p>유노포유는 대한민국 국민이 놓치기 쉬운 정부 혜택과 생활금융 정보를 쉽게 전달하기 위해 운영됩니다.</p>
+        <p style="margin-top: 8px;">※ 본 사이트의 정보는 참고용이며, 정확한 내용은 관련 기관에 직접 확인하시기 바랍니다.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo-text" style="color: white;">유노포유<span style="color: var(--gold);">.com</span></span>
+      <p>알아두면 돈 되는 대한민국 생활정보 플랫폼입니다. 정부지원금, 세금·건강보험, 재테크 정보를 쉽고 정확하게 전달합니다.</p>
+    </div>
+    <div class="footer-col">
+      <h4>카테고리</h4>
+      <a href="gov.html">정부지원금</a>
+      <a href="tax.html">세금·건강보험</a>
+      <a href="finance.html">재테크·생활금융</a>
+    </div>
+    <div class="footer-col">
+      <h4>사이트 안내</h4>
+      <a href="about.html">사이트 소개</a>
+      <a href="contact.html">문의하기</a>
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="terms.html">이용약관</a>
+    </div>
+    <div class="footer-col">
+      <h4>고객 지원</h4>
+      <a href="contact.html">이메일 문의</a>
+      <a href="privacy.html">개인정보 보호</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 YouNo4U. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+        <a href="contact.html">문의하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
