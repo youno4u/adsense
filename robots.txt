@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://youno4u.com/sitemap.xml
